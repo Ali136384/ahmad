@@ -8,6 +8,8 @@ import Login from "./screens/SignIn";
 import SignUp from "./screens/SignUp";
 import forget_password from "./screens/ForgetPassword";
 import Home from "./screens/Home";
+import Details from "./screens/Details";
+import Payment1 from "./screens/Payment1";
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -15,6 +17,16 @@ export default function App() {
     <NavigationContainer>
       <StatusBar />
       <Stack.Navigator>
+        <Stack.Screen
+          name="Payment"
+          component={Payment1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Home"
           component={Home}

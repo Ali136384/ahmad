@@ -7,9 +7,13 @@ import {
   ScrollView,
   Image,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import React from "react";
+import { EvilIcons } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 
+import { MaterialIcons } from "@expo/vector-icons";
 const { height } = Dimensions.get("window");
 export default function Home() {
   const DATA = [
@@ -23,6 +27,10 @@ export default function Home() {
     },
     {
       id: "58694a0f-3da1-471f-bd96-145571e29d72",
+      title: "Third Item",
+    },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e29d725232",
       title: "Third Item",
     },
   ];
@@ -58,9 +66,78 @@ export default function Home() {
               data={DATA}
               renderItem={({ item }) => {
                 return (
-                  <>
-                    <Text>{item.id}</Text>
-                  </>
+                  <View
+                    style={{
+                      marginBottom: 15,
+                      backgroundColor: "white",
+                      marginRight: 29,
+                      borderRadius: 20,
+                      padding: 20,
+                      shadowColor: "black",
+                      shadowOffset: {
+                        width: 1,
+                        height: 1,
+                      },
+                      shadowOpacity: 1,
+                      shadowRadius: 1,
+                      elevation: 1,
+                      marginTop: 15,
+                    }}
+                  >
+                    <View
+                      style={{
+                        position: "absolute",
+                        right: 30,
+                        top: 30,
+                        zIndex: 100,
+                        backgroundColor: "#1B1E2818",
+                        borderRadius: 999,
+                        width: 35,
+                        height: 35,
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <MaterialIcons
+                        name="favorite-border"
+                        size={24}
+                        color="white"
+                      />
+                    </View>
+                    <Image
+                      borderRadius={20}
+                      height={285}
+                      width={268}
+                      source={{
+                        uri: "https://s3-alpha-sig.figma.com/img/435c/561d/d1ea2a4643541a082e29f3f3156f70d7?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lacvZmvOt716aVnn~ykJ3K9B6t9WTvZOCqeDpR9yOqLSB4xR-JiMDJXmbyWhY5Ah8wA1UAo9W-xmXbXr4cq0QbuzRn7LV1WDoEpEJVp6FsNH327T0Kl1yZbx9AUqRJ2FZtJsy1U3n-RgjtWrOoC41E1nu8jhK0O5Q0WrfmlWgOMku7SIveuz9PVc2OU4XGo8Ev7PR0gb2Mm2iwK2mEHaT-yTFlAUq12to9pRNlCzzRuMqWYw91TLbwpiksCk0Czbn~XkeqI4xE0tP~9gxDa2HYNm7COzn-iTTf5KWldWVJimG~Y7OHD3AP-eb1eTZZyx8IiFI4t5VNibBCCHgSj-eQ__",
+                      }}
+                    />
+                    <View
+                      style={{
+                        marginLeft: 20,
+                        overflow: "hidden",
+                      }}
+                    ></View>
+
+                    <View
+                      style={{
+                        marginTop: 20,
+                        flexDirection: "column",
+                        alignItems: "baseline",
+                        padding: 10,
+                      }}
+                    >
+                      <Text style={{ color: "#7D848D", marginBottom: 6 }}>
+                        PT-190
+                      </Text>
+                      <View style={{ flexDirection: "row", left: -5 }}>
+                        <EvilIcons name="location" size={24} color="black" />
+                        <Text style={{ color: "#7D848D" }}>
+                          Sapanca ,Turkey
+                        </Text>
+                      </View>
+                    </View>
+                  </View>
                 );
               }}
               keyExtractor={(item) => item.id}
@@ -145,11 +222,12 @@ const s = StyleSheet.create({
     alignItems: "center",
   },
   list_head_txt1: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     color: "#144F59",
   },
   list_head_txt2: {
     color: "#FA9D1C",
+    fontSize: 17,
   },
 });

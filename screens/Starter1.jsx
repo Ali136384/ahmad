@@ -21,14 +21,14 @@ export default function Starter1({ navigation }) {
           <Image
             height={430}
             source={{
-              uri: "https://www.letsroam.com/explorer/wp-content/uploads/sites/10/2021/10/travel-tips-feature.jpg",
+              uri: "https://s3-alpha-sig.figma.com/img/6fe1/14ac/ce6eead7475fd5f1d1a5dbb5247378aa?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DItdiz~4rpNJchh45p~qlM0MngiM5GEBwjonQhdx8jCqI3z-8gcjTsTPvsAj6njd1eiCVXPbAjFz5B~c7Onl0yMk83gbPExXmPRLAdOc-YxVQeLa91pOJ4ZFdeEOTQyEPOU5P52R62EydRlyXE9dwka4auRrHOC3nxCpEySDCldjObPyZOHrBtCDzayJMBMS~RD1X6qtDJ01hisYKmJLFcmWqNxCVnfDR0YSmyma2uARc3t4f90MPByjm0e6taqb~KRF8mHr0FOcBB5kLTg9BhpddmBYj44ScUMpE2OL-hFKfLR-QI8dLvgPsskZEgRGpM1Qx3TJdt9rMHggb5FVKQ__",
             }}
           />
         ) : (
           <Image
             height={430}
             source={{
-              uri: "https://jetsetjansen.com/wp-content/uploads/2023/07/philippines-travel-guide.jpg",
+              uri: "https://s3-alpha-sig.figma.com/img/677c/121b/68ec0864d7a2ac6b02633e7192e487bf?Expires=1716163200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Shr9Ebs0zRYr-kvmxsK5fA8s1x7R-VhB8mazX5r63AyOzj6P~l6GvJtr-wtECmaHUfZWg5JGo4Y8O6J9nUSSdW2yjmzu3fnqFRIHR7a12ByIBwhFRoZlZ7I-hDvhvjZP1RxW6dI6Pw4ZBjpvLMiE-PI2xnACv8lvCvjccPK4zag-i1c2aPbxIUlWYiB8C2GFXm9wMpKU9i3FW42QVlFmSu7-nZScrnOn6v6t~r010ZqdDK2QVR7Z91VZv7DQeN1Gfuo7hMHQalfqMNDO-aN3kRfRJjK-9QzEXGk04M4y2~Iz1bMJ~9DWzSCBvyRs64A3j3XQ8SKHX5xRxsFIHoxIpQ__",
             }}
           />
         )}
