@@ -3,7 +3,7 @@ import React from "react";
 import { EvilIcons } from "@expo/vector-icons";
 
 const { height, width } = Dimensions.get("window");
-export default function Details() {
+export default function Details({ navigation }) {
   return (
     <View style={{ height }}>
       <View>
@@ -84,7 +84,7 @@ export default function Details() {
             source={require("../ICONS.png")}
           />
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Payment")}>
             <View
               style={{
                 backgroundColor: "#FA9D1C",

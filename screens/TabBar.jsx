@@ -1,47 +1,61 @@
 import React from "react";
-import { TabBar } from "./TabBar";
-import { View, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
-
 const { height } = Dimensions.get("window");
-export default function TabBa() {
+export default function TabBa({ navigation }) {
   return (
     <View style={s.bott_container}>
       <View style={s.bott}>
-        <View style={s.tab_container}>
-          <Text>
-            <SimpleLineIcons name="home" size={26} color="#21BA90" />
-          </Text>
-          <Text style={s.bottom_txt}>Home</Text>
-        </View>
-        <View style={s.tab_container}>
-          <Text>
-            <FontAwesome5 name="calendar-alt" size={24} color="#21BA90" />
-          </Text>
-          <Text style={s.bottom_txt}>calendar</Text>
-        </View>
-        <View style={s.search_container}>
-          <AntDesign name="search1" size={24} color="white" />
-        </View>
-        <View style={s.tab_container}>
-          <Text>
-            <Ionicons
-              name="chatbubble-ellipses-outline"
-              size={24}
-              color="#21BA90"
-            />
-          </Text>
-          <Text style={s.bottom_txt}>Messages</Text>
-        </View>
-        <View style={s.tab_container}>
-          <Text>
-            <Ionicons name="person-outline" size={24} color="#21BA90" />
-          </Text>
-          <Text style={s.bottom_txt}>Profile</Text>
-        </View>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <View style={s.tab_container}>
+            <Text>
+              <SimpleLineIcons name="home" size={26} color="#21BA90" />
+            </Text>
+            <Text style={s.bottom_txt}>Home</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Calendar")}>
+          <View style={s.tab_container}>
+            <Text>
+              <FontAwesome5 name="calendar-alt" size={24} color="#21BA90" />
+            </Text>
+            <Text style={s.bottom_txt}>calendar</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+          <View style={s.search_container}>
+            <AntDesign name="search1" size={24} color="white" />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <View style={s.tab_container}>
+            <Text>
+              <Ionicons
+                name="chatbubble-ellipses-outline"
+                size={24}
+                color="#21BA90"
+              />
+            </Text>
+            <Text style={s.bottom_txt}>Messages</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+          <View style={s.tab_container}>
+            <Text>
+              <Ionicons name="person-outline" size={24} color="#21BA90" />
+            </Text>
+            <Text style={s.bottom_txt}>Profile</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

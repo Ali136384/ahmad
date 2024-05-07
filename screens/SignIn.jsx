@@ -37,7 +37,10 @@ export default function Login({ navigation }) {
         >
           Forget Password ?
         </Text>
-        <TouchableOpacity style={s.sign_in}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Home")}
+          style={s.sign_in}
+        >
           <View>
             <Text style={s.login}>Sign in</Text>
           </View>
