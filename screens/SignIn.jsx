@@ -25,14 +25,16 @@ const app = initializeApp(firebaseConfig);
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState();
   const handleSignIn = () => {
     const auth = getAuth();
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setUser(userCredential.user);
         console.log("User signed in:", user);
-        navigation.navigate("Home", { user: user });
+        navigation.navigate("Home", { user: user, password: password });
       })
       .catch((error) => {
         console.error("Sign-in error:", error);

@@ -1,5 +1,5 @@
 import { View, Text, Dimensions, TouchableOpacity, Image } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Fontisto } from "@expo/vector-icons";
@@ -8,7 +8,11 @@ import { Feather } from "@expo/vector-icons";
 import TabBar from "./TabBar";
 const { height, width } = Dimensions.get("window");
 
-export default function Profile({ navigation }) {
+export default function Profile({ navigation, route }) {
+  useEffect(() => {
+    const user = route.params.user;
+    console.log(user);
+  }, []);
   return (
     <>
       <View
@@ -37,17 +41,26 @@ export default function Profile({ navigation }) {
           <Text style={{ color: "#21BA90", fontWeight: "bold", fontSize: 20 }}>
             Profile
           </Text>
-          <View
-            style={{
-              color: "#FA9D1C",
-              fontSize: 15,
-              padding: 10,
-              borderRadius: 999,
-              backgroundColor: "#eee",
-            }}
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("EditProfile", {
+                user: route.params.user,
+                password: route.params.password,
+              })
+            }
           >
-            <AntDesign name="edit" size={24} color="#FA9D1C" />
-          </View>
+            <View
+              style={{
+                color: "#FA9D1C",
+                fontSize: 15,
+                padding: 10,
+                borderRadius: 999,
+                backgroundColor: "#eee",
+              }}
+            >
+              <AntDesign name="edit" size={24} color="#FA9D1C" />
+            </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{
@@ -71,36 +84,46 @@ export default function Profile({ navigation }) {
               color: "#144F59",
             }}
           >
-            Ahmet Awad
+            {route.params.user.displayName}
           </Text>
-          <Text style={{ color: "#7D848D" }}>aawad9797@gmail.com</Text>
+          <Text style={{ color: "#7D848D" }}>{route.params.user.email}</Text>
           <View
             style={{
               marginTop: 20,
               gap: 10,
             }}
           >
-            <View
-              style={{
-                paddingHorizontal: 30,
-                paddingVertical: 10,
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.4,
-                width,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate("EditProfile", {
+                  user: route.params.user,
+                  password: route.params.password,
+                })
+              }
             >
-              <View style={{ flexDirection: "row", gap: 14 }}>
-                <Text style={{ left: 3 }}>
-                  <Ionicons name="person-outline" size={24} color="gray" />
+              <View
+                style={{
+                  paddingHorizontal: 30,
+                  paddingVertical: 10,
+                  borderBottomColor: "gray",
+                  borderBottomWidth: 0.4,
+                  width,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ flexDirection: "row", gap: 14 }}>
+                  <Text style={{ left: 3 }}>
+                    <Ionicons name="person-outline" size={24} color="gray" />
+                  </Text>
+                  <Text>Profile</Text>
+                </View>
+                <Text>
+                  <AntDesign name="right" size={24} color="gray" />
                 </Text>
-                <Text>Profile</Text>
               </View>
-              <Text>
-                <AntDesign name="right" size={24} color="gray" />
-              </Text>
-            </View>
+            </TouchableOpacity>
+
             <View
               style={{
                 paddingHorizontal: 30,

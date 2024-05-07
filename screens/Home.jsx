@@ -16,7 +16,7 @@ import { Fontisto } from "@expo/vector-icons";
 
 import { MaterialIcons } from "@expo/vector-icons";
 const { height } = Dimensions.get("window");
-export default function Home({ navigation }) {
+export default function Home({ navigation, route }) {
   const DATA = [
     {
       id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
@@ -48,7 +48,7 @@ export default function Home({ navigation }) {
                 uri: "https://cours-informatique-gratuit.fr/wp-content/uploads/2017/10/avatar.png",
               }}
             />
-            <Text style={s.name}>Ahmet</Text>
+            <Text style={s.name}>{route.params.user.displayName}</Text>
           </View>
           <View style={s.head_txt_container}>
             <Text style={s.head_txt1}>Find your stay </Text>
@@ -150,7 +150,11 @@ export default function Home({ navigation }) {
           </View>
         </View>
       </ScrollView>
-      <TabBar navigation={navigation} />
+      <TabBar
+        password={route.params.password}
+        user={route.params.user}
+        navigation={navigation}
+      />
     </View>
   );
 }
@@ -193,7 +197,7 @@ const s = StyleSheet.create({
   },
   top_image_name: {
     backgroundColor: "#7C7C7C25",
-    width: 100,
+    width: 120,
     borderRadius: 999,
     flexDirection: "row",
     alignItems: "center",

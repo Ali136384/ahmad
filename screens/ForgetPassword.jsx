@@ -5,13 +5,32 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 const { height } = Dimensions.get("window");
 
 export default function Forget_password({ navigation }) {
+  const [email, setEmail] = useState("");
+  const handleResetPassword = () => {
+    const auth = getAuth();
+    if (!email) {
+      Alert.alert("Error", "Please enter your email address");
+      return;
+    }
+
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        Alert.alert("Success", "Password reset email has been sent");
+      })
+      .catch((error) => {
+        Alert.alert("Error", error.message);
+      });
+  };
+
   return (
     <View style={s.container}>
       <View style={s.back_container}>
@@ -27,10 +46,14 @@ export default function Forget_password({ navigation }) {
       </View>
       <View style={s.inputs_container}>
         <View style={s.email_inp}>
-          <TextInput style={s.inpt1} placeholder="E-mail" />
+          <TextInput
+            onChangeText={(text) => setEmail(text)}
+            style={s.inpt1}
+            placeholder="E-mail"
+          />
         </View>
 
-        <TouchableOpacity style={s.sign_in}>
+        <TouchableOpacity onPress={handleResetPassword} style={s.sign_in}>
           <View>
             <Text style={s.login}>Reset Password</Text>
           </View>

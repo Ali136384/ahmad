@@ -11,7 +11,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 const { height } = Dimensions.get("window");
-export default function TabBa({ navigation }) {
+export default function TabBa({ navigation, user, password }) {
   return (
     <View style={s.bott_container}>
       <View style={s.bott}>
@@ -48,7 +48,11 @@ export default function TabBa({ navigation }) {
             <Text style={s.bottom_txt}>Messages</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
+        <TouchableOpacity
+          onPress={() =>
+            navigation.navigate("Profile", { user: user, password: password })
+          }
+        >
           <View style={s.tab_container}>
             <Text>
               <Ionicons name="person-outline" size={24} color="#21BA90" />
