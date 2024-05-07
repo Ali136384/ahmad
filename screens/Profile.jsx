@@ -6,6 +6,7 @@ import { Fontisto } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import TabBar from "./TabBar";
+import { getAuth } from "firebase/auth";
 const { height, width } = Dimensions.get("window");
 
 export default function Profile({ navigation, route }) {
@@ -13,6 +14,16 @@ export default function Profile({ navigation, route }) {
     const user = route.params.user;
     console.log(user);
   }, []);
+
+  const handleSignOut = async () => {
+    const auth = getAuth();
+    try {
+      await auth.signOut(); // Sign out the user using Firebase auth
+      navigation.navigate("Login"); // Redirect the user to the login page
+    } catch (error) {
+      console.error("Error signing out:", error.message);
+    }
+  };
   return (
     <>
       <View
@@ -187,27 +198,29 @@ export default function Profile({ navigation, route }) {
                 <AntDesign name="right" size={24} color="gray" />
               </Text>
             </View>
-            <View
-              style={{
-                paddingHorizontal: 30,
-                paddingVertical: 10,
-                borderBottomColor: "gray",
-                borderBottomWidth: 0.4,
-                width,
-                flexDirection: "row",
-                justifyContent: "space-between",
-              }}
-            >
-              <View style={{ flexDirection: "row", gap: 14 }}>
-                <Text style={{ left: 3 }}>
-                  <AntDesign name="logout" size={24} color="gray" />
+            <TouchableOpacity onPress={handleSignOut}>
+              <View
+                style={{
+                  paddingHorizontal: 30,
+                  paddingVertical: 10,
+                  borderBottomColor: "gray",
+                  borderBottomWidth: 0.4,
+                  width,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <View style={{ flexDirection: "row", gap: 14 }}>
+                  <Text style={{ left: 3 }}>
+                    <AntDesign name="logout" size={24} color="gray" />
+                  </Text>
+                  <Text>Logout</Text>
+                </View>
+                <Text>
+                  <AntDesign name="right" size={24} color="gray" />
                 </Text>
-                <Text>Logout</Text>
               </View>
-              <Text>
-                <AntDesign name="right" size={24} color="gray" />
-              </Text>
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
