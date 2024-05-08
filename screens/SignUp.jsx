@@ -34,7 +34,6 @@ export default function SignUp({ navigation }) {
 
   const handleSignUp = () => {
     const auth = getAuth();
-
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed up successfully

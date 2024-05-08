@@ -95,9 +95,9 @@ export default function Profile({ navigation, route }) {
               color: "#144F59",
             }}
           >
-            {route.params.user.displayName}
+            {route.params.user?.displayName}
           </Text>
-          <Text style={{ color: "#7D848D" }}>{route.params.user.email}</Text>
+          <Text style={{ color: "#7D848D" }}>{route.params.user?.email}</Text>
           <View
             style={{
               marginTop: 20,
@@ -107,8 +107,8 @@ export default function Profile({ navigation, route }) {
             <TouchableOpacity
               onPress={() =>
                 navigation.navigate("EditProfile", {
-                  user: route.params.user,
-                  password: route.params.password,
+                  user: route.params?.user,
+                  password: route.params?.password,
                 })
               }
             >

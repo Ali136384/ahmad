@@ -34,6 +34,10 @@ export default function Home({ navigation, route }) {
       id: "58694a0f-3da1-471f-bd96-145571e29d725232",
       title: "Third Item",
     },
+    {
+      id: "58694a0f-3da1-471f-bd96-145571e5329d725232",
+      title: "Third Item",
+    },
   ];
   return (
     <View>
@@ -48,7 +52,7 @@ export default function Home({ navigation, route }) {
                 uri: "https://cours-informatique-gratuit.fr/wp-content/uploads/2017/10/avatar.png",
               }}
             />
-            <Text style={s.name}>{route.params.user.displayName}</Text>
+            <Text style={s.name}>{route.params?.user?.displayName}</Text>
           </View>
           <View style={s.head_txt_container}>
             <Text style={s.head_txt1}>Find your stay </Text>
@@ -151,8 +155,8 @@ export default function Home({ navigation, route }) {
         </View>
       </ScrollView>
       <TabBar
-        password={route.params.password}
-        user={route.params.user}
+        password={route.params?.password}
+        user={route.params?.user}
         navigation={navigation}
       />
     </View>
@@ -197,7 +201,7 @@ const s = StyleSheet.create({
   },
   top_image_name: {
     backgroundColor: "#7C7C7C25",
-    width: 120,
+    width: "",
     borderRadius: 999,
     flexDirection: "row",
     alignItems: "center",

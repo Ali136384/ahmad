@@ -36,18 +36,16 @@ export default function TabBa({ navigation, user, password }) {
             <AntDesign name="search1" size={24} color="white" />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-          <View style={s.tab_container}>
-            <Text>
-              <Ionicons
-                name="chatbubble-ellipses-outline"
-                size={24}
-                color="#21BA90"
-              />
-            </Text>
-            <Text style={s.bottom_txt}>Messages</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={s.tab_container}>
+          <Text>
+            <Ionicons
+              name="chatbubble-ellipses-outline"
+              size={24}
+              color="#21BA90"
+            />
+          </Text>
+          <Text style={s.bottom_txt}>Messages</Text>
+        </View>
         <TouchableOpacity
           onPress={() =>
             navigation.navigate("Profile", { user: user, password: password })

@@ -14,6 +14,8 @@ import Searech from "./screens/Searech";
 import Profile from "./screens/Profile.jsx";
 import EditProfile from "./screens/EditProfile.jsx";
 import Calendar from "./screens/Calendar.jsx";
+
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {

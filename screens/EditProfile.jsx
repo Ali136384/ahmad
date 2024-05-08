@@ -123,9 +123,9 @@ export default function EditProfile({ navigation, route }) {
             color: "#144F59",
           }}
         >
-          Ahmet Awad
+          {route.params.user?.displayName}
         </Text>
-        <Text style={{ color: "#7D848D" }}>aawad9797@gmail.com</Text>
+        <Text style={{ color: "#7D848D" }}> {route.params.user?.email}</Text>
         <View
           style={{
             margin: 20,
@@ -151,7 +151,7 @@ export default function EditProfile({ navigation, route }) {
           >
             <TextInput
               onChangeText={(text) => setNewName(text)}
-              defaultValue={user.displayName}
+              defaultValue={user?.displayName}
             />
 
             <Text>
@@ -175,7 +175,7 @@ export default function EditProfile({ navigation, route }) {
           >
             <TextInput
               onChangeText={(text) => setNewEmail(text)}
-              defaultValue={user.email}
+              defaultValue={user?.email}
             />
             <Text>
               <AntDesign name="check" size={24} color="#F99D1B" />
@@ -197,7 +197,7 @@ export default function EditProfile({ navigation, route }) {
               alignItems: "center",
             }}
           >
-            <TextInput defaultValue={route.params.password} />
+            <TextInput defaultValue={route.params?.password} />
             <Text
               onPress={() => navigation.navigate("ForgetPass")}
               style={{

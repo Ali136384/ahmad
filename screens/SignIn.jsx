@@ -5,6 +5,7 @@ import {
   Dimensions,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
@@ -12,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const { height } = Dimensions.get("window");
+
 const firebaseConfig = {
   apiKey: "AIzaSyArLf4r-e0TwBa-xK4F7u_nbZNYbWoO6vY",
   authDomain: "ahmad-auth.firebaseapp.com",
@@ -26,9 +28,9 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState();
+
   const handleSignIn = () => {
     const auth = getAuth();
-
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -38,6 +40,7 @@ export default function Login({ navigation }) {
       })
       .catch((error) => {
         console.error("Sign-in error:", error);
+        // Alert.alert("No user ");
       });
   };
 

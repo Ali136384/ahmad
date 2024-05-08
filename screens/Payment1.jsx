@@ -144,7 +144,6 @@ export default function Payment1({ navigation }) {
               <View
                 style={{
                   width: 154,
-
                   borderColor: "gray",
                   borderWidth: 1,
                   paddingHorizontal: 6,

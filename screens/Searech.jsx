@@ -169,7 +169,7 @@ export default function Searech({ navigation }) {
           </View>
         </View>
       </ScrollView>
-      <TabBar />
+      <TabBar navigation={navigation} />
     </View>
   );
 }
