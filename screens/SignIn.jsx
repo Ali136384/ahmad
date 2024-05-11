@@ -15,13 +15,14 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 const { height } = Dimensions.get("window");
 
 const firebaseConfig = {
-  apiKey: "AIzaSyArLf4r-e0TwBa-xK4F7u_nbZNYbWoO6vY",
-  authDomain: "ahmad-auth.firebaseapp.com",
-  projectId: "ahmad-auth",
-  storageBucket: "ahmad-auth.appspot.com",
-  messagingSenderId: "304582763428",
-  appId: "1:304582763428:web:a49c75ad2fddef401b1731",
+  apiKey: "AIzaSyDsqSMUCzs0Z8KmgaGsOtgtd_cdWSSuiEs",
+  authDomain: "ahmad-auth-38d27.firebaseapp.com",
+  projectId: "ahmad-auth-38d27",
+  storageBucket: "ahmad-auth-38d27.appspot.com",
+  messagingSenderId: "985580481158",
+  appId: "1:985580481158:web:d466c297faa8c08cbebf07",
 };
+
 const app = initializeApp(firebaseConfig);
 
 export default function Login({ navigation }) {
