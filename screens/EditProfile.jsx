@@ -10,9 +10,6 @@ import {
 import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import { Fontisto } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { Feather } from "@expo/vector-icons";
 import { getAuth, sendEmailVerification, updateProfile } from "firebase/auth";
 const { height, width } = Dimensions.get("window");
 

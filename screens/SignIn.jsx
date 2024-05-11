@@ -7,11 +7,15 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
+
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import "expo-dev-client";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import auth from "@react-native-firebase/auth";
 const { height } = Dimensions.get("window");
 
 const firebaseConfig = {
@@ -28,6 +32,7 @@ const app = initializeApp(firebaseConfig);
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
   const handleSignIn = () => {
@@ -44,6 +49,49 @@ export default function Login({ navigation }) {
         // Alert.alert("No user ");
       });
   };
+
+  // sign in With google
+
+  GoogleSignin.configure({
+    webClientId:
+      "985580481158-j8a840lknn9tbu1gt8jk8pn7p5atbv4m.apps.googleusercontent.com",
+  });
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (initializing) setInitializing(false);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber; // unsubscribe on unmount
+  }, []);
+
+  if (initializing) return null;
+
+  async function onGoogleLinkButtonPress() {
+    // Ensure the device supports Google Play services
+    await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+    // Obtain the user's ID token
+    const { idToken } = await GoogleSignin.signIn();
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Link the user's account with the Google credential
+    const firebaseUserCredential = await auth().currentUser.linkWithCredential(
+      googleCredential
+    );
+    //  Handle the linked account as needed in your app
+    // return console.log(first);
+    const user_sign_in = auth().signInWithCredential(googleCredential);
+    user_sign_in
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <View style={s.container}>
@@ -82,6 +130,11 @@ export default function Login({ navigation }) {
         <TouchableOpacity onPress={handleSignIn} style={s.sign_in}>
           <View>
             <Text style={s.login}>Sign in</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={onGoogleLinkButtonPress} style={s.sign_in}>
+          <View>
+            <Text style={s.login}>Sign in with google !</Text>
           </View>
         </TouchableOpacity>
         <View style={s.dont_have_acc}>

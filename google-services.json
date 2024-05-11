@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "985580481158",
+    "project_id": "ahmad-auth-38d27",
+    "storage_bucket": "ahmad-auth-38d27.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985580481158:android:d3dbef9935435d47bebf07",
+        "android_client_info": {
+          "package_name": "com.mimo20032004.ahmad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985580481158-7dv28ik3083jibisrtjre7p97gius9ti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mimo20032004.ahmad",
+            "certificate_hash": "3d1eb631051ad84d2231ebbf1a80da4835a9aa25"
+          }
+        },
+        {
+          "client_id": "985580481158-90h4skt1e81qf5278dn3phhm8d5sqm71.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mimo20032004.ahmad",
+            "certificate_hash": "b89b29630d860f3617e59859bca3a3fa6f933931"
+          }
+        },
+        {
+          "client_id": "985580481158-j8a840lknn9tbu1gt8jk8pn7p5atbv4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMs1Ti8_eTpe9cvCPzC-zXqfUQEmCCFfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985580481158-j8a840lknn9tbu1gt8jk8pn7p5atbv4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
